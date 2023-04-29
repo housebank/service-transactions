@@ -16,16 +16,15 @@ function initializeDatabaseTableWithBaseSettingsPlugin(fastify: FastifyInstance,
           table.integer('beneficiary_id').unsigned();
           table.integer('payer_id').unsigned();
           table.string('status');
-          table.timestamp('created_at', { useTz: true });
-          table.timestamp('updated_at', { useTz: true });
+          table.timestamp('created_at', { useTz: true }).defaultTo(fastify.knex.fn.now(6));
+          table.timestamp('updated_at', { useTz: true }).defaultTo(fastify.knex.fn.now(6));
           table.string('transaction_type');
           table.decimal('amount', 10, 2);
           table.string('currency');
           table.text('comment');
           table.integer('payment_id')/*.unsigned()*/;
           table.integer('property_id').unsigned();
-
-          /*table.foreign("payment_id").references("id").inTable("property").onDelete("CASCADE");*/
+          /*table.foreign("payment_id").references("id").inTable("payment").onDelete("CASCADE");*/
           table.foreign("beneficiary_id").references("id").inTable("user").onDelete("CASCADE");
           table.foreign("property_id").references("id").inTable("property").onDelete("CASCADE");
           table.foreign("payer_id").references("id").inTable("user").onDelete("CASCADE");
