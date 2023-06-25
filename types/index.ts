@@ -1,14 +1,14 @@
 export interface IServiceDefault {
   id?: number;
-  beneficiary_id?: string;
-  payer_id?: string;
-  status?: string[];
+  beneficiary_id?: number;
+  payer_id?: number;
+  status?: string;
   created_at?: Date|string;
   updated_at?: Date|string;
-  transaction_type?: string[];
-  amount?: string;
+  transaction_type?: string;
+  amount?: number;
   currency?: string;
-  comment?: number;
-  payment_id?: boolean;
-  property_id?: boolean;
+  comment?: string;
+  payment_id?: number;
+  property_id?: number;
 }
