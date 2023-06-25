@@ -52,15 +52,15 @@ const getByIdEndpoint = {
 const createNewEndpoint = {
   schema: {
     body: { type: "array", items: {type: "object", properties:{
-          name: { type: "string" },
-          nutrition_id: { type: "integer" },
-          tags: {type: "array", items: {type: "string"}, maxItems: 999},
-          visibility: { type: "boolean" },
-          allergy_info: { type: "string" },
-          description: { type: "string" },
-          is_meal_prep: { type: "boolean" },
-          store_id: { type: "integer" },
-          media_id: { type: "integer" },
+          beneficiary_id: { type: "number" },
+          payer_id: { type: "number" },
+          status: {type: "string"},
+          transaction_type: { type: "string" },
+          currency: { type: "string" },
+          amount: { type: "number" },
+          comment: { type: "string" },
+          payment_id: { type: "number" },
+          property_id: { type: "number" },
         }}, maxItems: 999},
     response: {
       200: {
